@@ -14,13 +14,13 @@ extension String {
 }
 
 extension Double {
-    public func stringify() -> String {
-        Duration().stringify(Int(self))
+    func stringify(format: DurationFormatType = .long, joiner: DurationJoiner = .default) -> String {
+        Duration().stringify(Int(self), format: format, joiner: joiner)
     }
 }
 
 extension Int {
-    public func stringify() -> String {
-        Duration().stringify(self)
+    func stringify(format: DurationFormatType = .long, joiner: DurationJoiner = .default) -> String {
+        Duration().stringify(self, format: format, joiner: joiner)
     }
 }
