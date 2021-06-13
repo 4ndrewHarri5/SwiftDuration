@@ -269,7 +269,7 @@ class DurationTests: XCTestCase {
     //MARK: Errors
     
     func testMinusNumberReturnsMinusResult() {
-        let seconds = -(1*86400)
+        let seconds = (-1*86400)
         let result = Duration().stringify(seconds)
         XCTAssertEqual(result, "-1 day")
     }
