@@ -40,11 +40,11 @@ public final class Duration {
         DurationUnit(name: .hours, value: 3600, patterns: ["hour", "hr", "h"], formats: .init(long: "hour", short: "hr", micro: "h", crono: ":")),
         DurationUnit(name: .days, value: 86400, patterns: ["day", "dy", "d"], formats: .init(long: "day", short: "day", micro: "d", crono: ":")),
         DurationUnit(name: .weeks, value: 604800, patterns: ["week", "wk", "w"], formats: .init(long: "week", short: "wk", micro: "w", crono: ":")),
-        DurationUnit(name: .months, value: 2628000, patterns: ["month", "mon", "mo", "mth"], formats: .init(long: "month", short: "mon", micro: "m", crono: ":")),
+        DurationUnit(name: .months, value: 2628000, patterns: ["month", "mon", "mo", "mth"], formats: .init(long: "month", short: "mon", micro: "mth", crono: ":")),
         DurationUnit(name: .years, value: 31536000, patterns: ["year", "yr", "y"], formats: .init(long: "year", short: "yr", micro: "y", crono: ":")),
     ]
     
-    func parse(string: String) throws -> Double {
+    func parse(_ string: String) throws -> Double {
         var replacedString = string
         try UNITS.forEach { (unit) in
             let mLen = unit.patterns.count
@@ -86,7 +86,7 @@ public final class Duration {
         return sum
     }
     
-    func stringify(seconds: Int, format: DurationFormatType = .long, joiner: DurationJoiner = .default) -> String{
+    func stringify(_ seconds: Int, format: DurationFormatType = .long, joiner: DurationJoiner = .default) -> String{
         
         let (years, months, weeks, days, hours, minutes, seconds) = yearsMonthsWeeksDaysHoursMinutesSeconds(from: seconds)
         
@@ -104,9 +104,10 @@ public final class Duration {
             }
             
             var suffix: String {
+                let isPlural = value == 1 || value == -1
                 switch format {
-                case .long: return value == 1 ? unit.formats.long : "\(unit.formats.long)s"
-                case .short: return value == 1 ? unit.formats.short : "\(unit.formats.short)s"
+                case .long: return isPlural ? unit.formats.long : "\(unit.formats.long)s"
+                case .short: return isPlural ? unit.formats.short : "\(unit.formats.short)s"
                 case .micro: return unit.formats.micro
                 case .crono: return unit.formats.crono
                 }

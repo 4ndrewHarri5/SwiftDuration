@@ -9,7 +9,7 @@ class DurationTests: XCTestCase {
     func testWhenGivenOneValueUnitInSecondsThenReturnValue() throws {
         let content = "10 seconds"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 10)
     }
@@ -17,7 +17,7 @@ class DurationTests: XCTestCase {
     func testWhenGivenTwoValueUnitInSecondsThenReturnTwoTimesValue() throws {
         let content = "10 seconds 10 seconds"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 20)
     }
@@ -25,7 +25,7 @@ class DurationTests: XCTestCase {
     func testWhenGivenTwoValueUnitInSecondsWithSeperatingWordReturnTwoTimesValue() throws {
         let content = "10 seconds and 10 seconds"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 20)
     }
@@ -35,7 +35,7 @@ class DurationTests: XCTestCase {
     func testWhenGivenOneUnitMinuteReturnsCorrect() throws {
         let content = "10 minutes"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 600)
     }
@@ -44,7 +44,7 @@ class DurationTests: XCTestCase {
         let content = "10 minutes 5 minute"
         let expected: Double = (10*60)+(5*60)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -55,7 +55,7 @@ class DurationTests: XCTestCase {
         let content = "2 hours"
         let expected: Double = (2*3600)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -64,7 +64,7 @@ class DurationTests: XCTestCase {
         let content = "2 hours and 1 hour"
         let expected: Double = (2*3600) + (3600)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -74,7 +74,7 @@ class DurationTests: XCTestCase {
         let content = "1 day"
         let expected: Double = (1*86400)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -83,7 +83,7 @@ class DurationTests: XCTestCase {
         let content = "2 days + 10 days"
         let expected: Double = (2*86400) + (10*86400)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -93,7 +93,7 @@ class DurationTests: XCTestCase {
         let content = "1 week"
         let expected: Double = (1*604800)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -102,7 +102,7 @@ class DurationTests: XCTestCase {
         let content = "9 weeks and 2 weeks"
         let expected: Double = (9*604800) + (2*604800)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -112,7 +112,7 @@ class DurationTests: XCTestCase {
         let content = "2 months"
         let expected: Double = (2*2628000)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -121,7 +121,7 @@ class DurationTests: XCTestCase {
         let content = "1 month and 3 months"
         let expected: Double = (1*2628000) + (3*2628000)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -131,7 +131,7 @@ class DurationTests: XCTestCase {
         let content = "1 year"
         let expected: Double = (1*31536000)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -140,7 +140,7 @@ class DurationTests: XCTestCase {
         let content = "2 years and 1 year"
         let expected: Double = (2*31536000) + (1*31536000)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -155,7 +155,7 @@ class DurationTests: XCTestCase {
         let content = "2 years and 1 day"
         let expected: Double = (2*31536000) + (1*86400)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -164,7 +164,7 @@ class DurationTests: XCTestCase {
         let content = "10 days, 6 minutes and 5 seconds"
         let expected: Double = (10*86400) + (6*60) + (5)
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, expected)
     }
@@ -175,7 +175,7 @@ class DurationTests: XCTestCase {
         
         let content = "10s and 8s"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 18)
         
@@ -185,7 +185,7 @@ class DurationTests: XCTestCase {
         
         let content = "10s plus 8s"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 18)
         
@@ -195,7 +195,7 @@ class DurationTests: XCTestCase {
         
         let content = "10s with 8s"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 18)
         
@@ -206,7 +206,7 @@ class DurationTests: XCTestCase {
     func testCompactStringReturnsSuccessfully() throws {
         let content = "5hr10m8s"
         
-        let result = try Duration().parse(string: content)
+        let result = try Duration().parse(content)
         
         XCTAssertEqual(result, 18608)
     }
@@ -216,25 +216,25 @@ class DurationTests: XCTestCase {
     func testWordWhichIsNotInPatternAfterNumberReturnsError() throws {
         let content = "2 seconds and 5 and"
         
-        assert(try Duration().parse(string: content), throws: DurationError.unableToParse(content: content, wrongValue: ""))
+        assert(try Duration().parse(content), throws: DurationError.unableToParse(content: content, wrongValue: ""))
     }
     
     func testInvalidUnitReturnsError() throws {
         let content = "2 seconds and 5 decades"
         
-        assert(try Duration().parse(string: content), throws: DurationError.unableToParse(content: content, wrongValue: "decades"))
+        assert(try Duration().parse(content), throws: DurationError.unableToParse(content: content, wrongValue: "decades"))
     }
     
     func testManyInvalidUnits() throws {
         let content = "2 seconds and 5 burgers and 2 sausage and 8 cheese"
         
-        assert(try Duration().parse(string: content), throws: DurationError.unableToParse(content: content, wrongValue: "burgers"))
+        assert(try Duration().parse(content), throws: DurationError.unableToParse(content: content, wrongValue: "burgers"))
     }
     
     func testManyInvalidWordsAfterEachOther() throws {
         let content = "2 seconds and 5 burgers sausage cheese"
         
-        assert(try Duration().parse(string: content), throws: DurationError.unableToParse(content: content, wrongValue: "burgers"))
+        assert(try Duration().parse(content), throws: DurationError.unableToParse(content: content, wrongValue: "burgers"))
     }
     
     // MARK:- stringify(seconds:)
@@ -242,7 +242,7 @@ class DurationTests: XCTestCase {
     func test60SecondsIs1Minute() {
         
         let seconds = 60
-        let result = Duration().stringify(seconds: seconds, format: .long)
+        let result = Duration().stringify(seconds, format: .long)
         
         XCTAssertEqual(result, "1 minute")
         
@@ -251,7 +251,7 @@ class DurationTests: XCTestCase {
     func test53SecondsIs53Seconds() {
         
         let seconds = 53
-        let result = Duration().stringify(seconds: seconds, format: .long)
+        let result = Duration().stringify(seconds, format: .long)
         
         XCTAssertEqual(result, "53 seconds")
         
@@ -260,35 +260,43 @@ class DurationTests: XCTestCase {
     func test1Minute23SecondsIs1Minute23Seconds() {
         
         let seconds = 60+23
-        let result = Duration().stringify(seconds: seconds, format: .long)
+        let result = Duration().stringify(seconds, format: .long)
         
         XCTAssertEqual(result, "1 minute 23 seconds")
         
+    }
+    
+    //MARK: Errors
+    
+    func testMinusNumberReturnsMinusResult() {
+        let seconds = -(1*86400)
+        let result = Duration().stringify(seconds)
+        XCTAssertEqual(result, "-1 day")
     }
     
     //MARK: Format
     
     func testFormatLongReturnsLongUnits() {
         let seconds = (1*86400) + (1*3600) + (1*60) + (1)
-        let result = Duration().stringify(seconds: seconds, format: .long)
+        let result = Duration().stringify(seconds, format: .long)
         XCTAssertEqual(result, "1 day 1 hour 1 minute 1 second")
     }
     
     func testFormatShortReturnsShortUnits() {
         let seconds = (1*86400) + (1*3600) + (1*60) + (1)
-        let result = Duration().stringify(seconds: seconds, format: .short)
+        let result = Duration().stringify(seconds, format: .short)
         XCTAssertEqual(result, "1 day 1 hr 1 min 1 sec")
     }
     
     func testFormatMicroReturnsMicroUnits() {
         let seconds = (1*86400) + (1*3600) + (1*60) + (1)
-        let result = Duration().stringify(seconds: seconds, format: .micro)
+        let result = Duration().stringify(seconds, format: .micro)
         XCTAssertEqual(result, "1d 1h 1m 1s")
     }
     
     func testFormatCronoReturnsCronoUnits() {
         let seconds = (1*86400) + (1*3600) + (1*60) + (1)
-        let result = Duration().stringify(seconds: seconds, format: .crono)
+        let result = Duration().stringify(seconds, format: .crono)
         XCTAssertEqual(result, "1:1:1:1:")
     }
     
@@ -296,25 +304,25 @@ class DurationTests: XCTestCase {
     
     func testDefaultJoinerReturnsSpaces() {
         let seconds = (1*86400) + (1*3600) + (1*60) + (1)
-        let result = Duration().stringify(seconds: seconds)
+        let result = Duration().stringify(seconds)
         XCTAssertEqual(result, "1 day 1 hour 1 minute 1 second")
     }
     
     func testPrettyJoinerReturnsCommaAnd() {
         let seconds = (1*86400) + (1*3600) + (1*60) + (1)
-        let result = Duration().stringify(seconds: seconds, joiner: .pretty)
-        XCTAssertEqual(result, "1 day, 1 hour, 1 minute, and 1 second")
+        let result = Duration().stringify(seconds, joiner: .pretty)
+        XCTAssertEqual(result, "1 day, 1 hour, 1 minute and 1 second")
     }
     
     func testPrettyJoinerReturnsCommaAndWithTwo() {
         let seconds = (1*86400) + (1*3600)
-        let result = Duration().stringify(seconds: seconds, joiner: .pretty)
+        let result = Duration().stringify(seconds, joiner: .pretty)
         XCTAssertEqual(result, "1 day and 1 hour")
     }
     
     func testPrettyJoinerReturnsResultWithNoJoinWhenJustOneUnit() {
         let seconds = (1*86400)
-        let result = Duration().stringify(seconds: seconds, joiner: .pretty)
+        let result = Duration().stringify(seconds, joiner: .pretty)
         XCTAssertEqual(result, "1 day")
     }
     
