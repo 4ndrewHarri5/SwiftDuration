@@ -23,7 +23,7 @@ extension Array where Element == String {
         return array.joined(separator: ", ")
     }
     
-    internal func joined(format: DurationJoiner = .default) -> String {
+    internal func joined(format: Duration.DurationJoiner = .default) -> String {
         switch format {
         case .default: return self.joined(separator: " ")
         case .pretty: return self.readableJoin()

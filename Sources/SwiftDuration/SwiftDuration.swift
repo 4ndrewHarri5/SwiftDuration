@@ -5,34 +5,34 @@
 //  Created by Andrew Harris on 22/07/2020.
 //
 import Foundation
-
-internal struct DurationFormat {
-    var long: String
-    var short: String
-    var micro: String
-    var crono: String
-}
-
-internal enum DurationFormatType {
-    case long, short, micro, crono
-}
-
-internal enum DurationName {
-    case seconds, minutes, hours, days, weeks, months, years
-}
-
-internal struct DurationUnit {
-    var name: DurationName
-    var value: Double
-    var patterns: [String]
-    var formats: DurationFormat
-}
-
-internal enum DurationJoiner {
-    case `default`, pretty
-}
     
 public final class Duration {
+    
+    public struct DurationFormat {
+        var long: String
+        var short: String
+        var micro: String
+        var crono: String
+    }
+
+    public enum DurationFormatType {
+        case long, short, micro, crono
+    }
+
+    public enum DurationName {
+        case seconds, minutes, hours, days, weeks, months, years
+    }
+
+    public struct DurationUnit {
+        var name: DurationName
+        var value: Double
+        var patterns: [String]
+        var formats: DurationFormat
+    }
+
+    public enum DurationJoiner {
+        case `default`, pretty
+    }
     
     private let UNITS = [
         DurationUnit(name: .seconds, value: 1, patterns: ["second", "sec", "s"], formats: .init(long: "second", short: "sec", micro: "s", crono: ":")),
@@ -44,7 +44,7 @@ public final class Duration {
         DurationUnit(name: .years, value: 31536000, patterns: ["year", "yr", "y"], formats: .init(long: "year", short: "yr", micro: "y", crono: ":")),
     ]
     
-    func parse(_ string: String) throws -> Double {
+    public func parse(_ string: String) throws -> Double {
         var replacedString = string
         try UNITS.forEach { (unit) in
             let mLen = unit.patterns.count
@@ -86,7 +86,7 @@ public final class Duration {
         return sum
     }
     
-    func stringify(_ seconds: Int, format: DurationFormatType = .long, joiner: DurationJoiner = .default) -> String{
+    public func stringify(_ seconds: Int, format: DurationFormatType = .long, joiner: DurationJoiner = .default) -> String{
         
         let (years, months, weeks, days, hours, minutes, seconds) = yearsMonthsWeeksDaysHoursMinutesSeconds(from: seconds)
         
