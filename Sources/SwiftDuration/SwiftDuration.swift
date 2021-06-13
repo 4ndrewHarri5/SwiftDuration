@@ -123,7 +123,7 @@ public final class Duration {
         }.transform { arr in
             switch format {
             case .crono: return arr.joined(separator: "")
-            default: return arr.joined(joiner)
+            default: return arr.joined(format: joiner)
             }
         }
         

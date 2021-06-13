@@ -20,10 +20,10 @@ extension Array where Element == String {
             let subrange = array.remove(array.count-2..<array.count)
             array.append(subrange.joined(separator: " and "))
         }
-        return array.joined()
+        return array.joined(separator: ", ")
     }
     
-    internal func joined(_ format: DurationJoiner = .default) -> String {
+    internal func joined(format: DurationJoiner = .default) -> String {
         switch format {
         case .default: return self.joined(separator: " ")
         case .pretty:

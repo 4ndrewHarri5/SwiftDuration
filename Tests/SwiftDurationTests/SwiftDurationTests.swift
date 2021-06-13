@@ -303,7 +303,7 @@ class DurationTests: XCTestCase {
     func testPrettyJoinerReturnsCommaAnd() {
         let seconds = (1*86400) + (1*3600) + (1*60) + (1)
         let result = Duration().stringify(seconds: seconds, joiner: .pretty)
-        XCTAssertEqual(result, "1 day, 1 hour, 1 minute and 1 second")
+        XCTAssertEqual(result, "1 day, 1 hour, 1 minute, and 1 second")
     }
     
     func testPrettyJoinerReturnsCommaAndWithTwo() {
