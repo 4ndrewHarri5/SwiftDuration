@@ -26,11 +26,7 @@ extension Array where Element == String {
     internal func joined(format: DurationJoiner = .default) -> String {
         switch format {
         case .default: return self.joined(separator: " ")
-        case .pretty:
-            if #available(macOS 10.15, *) {
-                return ListFormatter.localizedString(byJoining: self)
-            }
-            return self.readableJoin()
+        case .pretty: return self.readableJoin()
         }
     }
 }
